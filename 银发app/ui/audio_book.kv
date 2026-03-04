@@ -1,0 +1,61 @@
+<AudioBookScreen>:
+    BoxLayout:
+        orientation: "vertical"
+        padding: 20
+        spacing: 20
+        
+        # 标题栏
+        BoxLayout:
+            orientation: "horizontal"
+            size_hint: (1, 0.1)
+            Button:
+                text: "返回"
+                background_color: (0.2, 0.6, 0.2, 1)
+                on_press: root.manager.current = "main"
+            Label:
+                text: "听书听戏"
+                font_size: 24
+                halign: "center"
+                valign: "middle"
+                size_hint: (0.8, 1)
+        
+        # 选项卡
+        BoxLayout:
+            orientation: "horizontal"
+            size_hint: (1, 0.1)
+            spacing: 10
+            Button:
+                text: "有声读物"
+                background_color: (0.2, 0.6, 0.2, 1)
+                on_press: root.load_audio_books()
+            Button:
+                text: "戏曲"
+                background_color: (0.8, 0.5, 0.0, 1)
+                on_press: root.load_opera()
+        
+        # 内容列表
+        Label:
+            text: "内容列表:"
+            size_hint: (1, 0.05)
+        TextInput:
+            id: content_list
+            text: "请选择有声读物或戏曲"
+            readonly: True
+            size_hint: (1, 0.5)
+            multiline: True
+            background_color: (1, 1, 1, 1)
+            foreground_color: (0, 0, 0, 1)
+        
+        # 播放控制按钮
+        BoxLayout:
+            orientation: "horizontal"
+            size_hint: (1, 0.15)
+            spacing: 20
+            Button:
+                text: "播放"
+                background_color: (0.2, 0.4, 0.8, 1)
+                on_press: root.play_selected()
+            Button:
+                text: "停止"
+                background_color: (0.8, 0.2, 0.2, 1)
+                on_press: root.stop_playback()

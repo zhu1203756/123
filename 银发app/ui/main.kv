@@ -1,0 +1,18 @@
+<MainScreen>:
+    BoxLayout:
+        orientation: "vertical"
+        spacing: 20
+        padding: 50
+        Label:
+            text: "适老化智慧社区服务"
+            font_size: 24
+            size_hint: (1, 0.2)
+            halign: "center"
+            valign: "middle"
+        GridLayout:
+            cols: 2
+            spacing: 20
+            Button:
+                text: "听书听戏"
+                font_size: 18
+                on_press: root.manager.current = "audio_book"
